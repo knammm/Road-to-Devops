@@ -22,7 +22,7 @@ Welcome to my DevOps learning journey! 🚀 In this repository, I've documented 
 5. [...]
 
 ## Projects
-- [Project 1: Loading,,,]
+- [Project 1: Vprofile - Deploy an application automatically using Vagrant provisioning]
 - [Project 2: Loading...]
 
 ## Acknowledgments
