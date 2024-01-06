@@ -1,0 +1,15 @@
+{
+  "Name": "knam",
+  "Age": 20,
+  "Skill": "DevOps",
+  "Tech": {
+    "Cloud": "AWS",
+    "CICD": "Jenkins",
+    "Containers": "K8s",
+    "GitOps": [
+      "GitLab",
+      "ArgoCD",
+      "Tekton"
+    ]
+  }
+}
