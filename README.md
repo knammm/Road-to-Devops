@@ -18,7 +18,8 @@ Welcome to my DevOps learning journey! 🚀 In this repository, I've documented 
 1. [VirtualVM setup]
 2. [Linux]
 3. [Vagrant]
-4. [...]
+4. [JSON & YAML]
+5. [...]
 
 ## Projects
 - [Project 1: Loading,,,]
