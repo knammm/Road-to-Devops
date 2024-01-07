@@ -1,5 +1,5 @@
 # emart-app
-![Project Workflow](workflow.jpg)
+![Project Workflow](workflow.png)
 ## Outcomes:
 - Getting familiar with Microservices and Docker Compose.
 - Understanding Microservices concepts.
