@@ -1,0 +1,1 @@
+{"virtualbox":{"/opt/script":{"guestpath":"/opt/script","hostpath":"D:/DevOps course/vagrantAndLinuxServers/Scripts test for SynDir","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"D:/My projects/Road to Devops/Bash Scripting/vagrant-vms","disabled":false,"__vagrantfile":true}}}
