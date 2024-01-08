@@ -1,0 +1,3 @@
+export is used to set environment variable in operating system. This variable will be available to all child processes created by current Bash process ever after
+To export variable for user, we put export variable command in ~/.bashrc file
+To export variable for all users, we put export variable command in /etc/profile file.
