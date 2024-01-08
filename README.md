@@ -19,11 +19,13 @@ Welcome to my DevOps learning journey! 🚀 In this repository, I've documented 
 2. [Linux]
 3. [Vagrant]
 4. [JSON & YAML]
-5. [...]
+5. [Containerize & Microservices concepts]
+6. [Bash Scripting]
+7. [...]
 
 ## Projects
 - [Project 1: Vprofile - Deploy an application automatically using Vagrant provisioning]
-- [Project 2: Loading...]
+- [Project 2: Deploy a Microservices application using Docker Containers]
 
 ## Acknowledgments
 I'd like to express my gratitude to [Imran Teli] for delivering a comprehensive DevOps course.
