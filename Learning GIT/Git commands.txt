@@ -1,0 +1,91 @@
+## Versioning section
+1. git init
+=> create a .git directory to maintain all the version
+
+2. git status
+=> tell the current state of the repository
+
+3. git add . (not recommend, use git add <FileName> instead !)
+=> track every file in the current state => go to staging area (still not committed)
+
+4. git commit -m "<message>"
+=> tell the message for of the changes
+
+5. git config --global user.email "<your email>"
+6. git config --global user.name "<your name>"
+=> tells git who you are. Global for all repository, Local will for this only repository
+
+7. git remote add origin <Link>
+=> give new entry that is a remote repository path (link github)
+
+8. git branch -M main
+=> change branch master into main
+
+9. git push -origin main (for the first time need to add -u before -origin)
+=> basically push all the data to the github repository remotely on branch main
+
+10. git log (add --oneline for shorter)
+=> shows all the previous commit of branch
+
+11. git show <commit ID>
+=> shows the changes
+
+12. git pull
+=> to pull back what have been change on the remote to local
+
+## Branch & More section
+1. git branch -c <New Name>
+=> create a new branch with name
+
+2. git branch -a
+=> show all branches
+
+3. git checkout <branch name> = git switch <branch name>
+=> switch to that branch
+
+4. git rm <file name> <file name>...
+=> remove file
+
+5. git mv <source path/name> <destination path/name>
+=> move file or rename that file
+
+6. git merge <branch name>
+=> merge the contents of "branch name" into the current branch
+
+7. vim .gitignore
+=> create a file to ignore paths. For example, add the content as "*.log" => git will ignore the changes of all file with that tail if their contents were changed.
+
+8. git push --all origin
+=> push all the branches contents to remote repo
+
+9. git clone <link repo>
+=> clone the remote-repo into local
+
+## Rollback section
+1. git checkout <FileName>
+=> if you have changes have not gone into staging or commit area
+
+2. git diff
+=> will show you the different in the file that you have changed
+
+3. git diff -cached
+=> gives the differences of the file that was staged. Or in summary, if you want to see the differences between the CURRENT commit with the NEXT commit that is going to happen.
+
+4. git restore --staged <FileName>
+=> restore from the staged level.
+
+5. git diff <previous commit id>..<current commit id>
+=> to see the differences between the commits
+
+6. git revert HEAD
+=> HEAD is the current commit => revert HEAD will go to previous (in commit phase). Note: this reverts will store in history (like making a new commit but this commit is actually the same content with the previous HEAD)
+
+7. git reset --hard <commit id>
+=> will rollback but it will not store the "past future" of the commit. It is a direct way of rollback
+
+## Git ssh connection section
+1. ssh key-gen
+=> create public key and private key in .ssh folder (private in id_rsa, public in id_rsa.pub). Paste the public key to your github setting => ssh... => paste your public key
+
+2. git clone <ssh path>
+=> clone the repo. It will check the public with the private key in the local.
