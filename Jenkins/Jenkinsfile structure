@@ -1,0 +1,26 @@
+pipeline{
+    agent{
+        // Define the job is going to run
+    }
+
+    tools{
+        // Define tools such as maven, jdk...
+    }
+
+    environment{
+        // Define environment variable
+    }
+
+    stages{
+        // Include steps that will execute our job
+        // The name must be match such as Build, Test, Deploy
+        stage('Something...'){
+            steps{
+
+            }
+            post{
+                // Post installation step, like sending notification...
+            }
+        }
+    }
+}
