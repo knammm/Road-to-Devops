@@ -77,3 +77,18 @@ Jenkins Pipeline exposes environment variables via the global variable `env`. Ke
 10. **WORKSPACE:** Absolute path of the workspace.
 
 For more details on available environment variables, refer to the [Jenkins Pipeline documentation](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#built-in-environment-variables).
+
+## Simple pipeline
+1. **Fetch Code**
+2. **Build**
+3. **Unit Test**
+4. **Code Analysis**
+5. **Upload Artifact**
+
+## Why Code Analysis ?
+- Dectect functionality and vulnerability errors.
+- Follow best pratices: Check your code against best practices and flag the problems which can be fixed by the developers.
+- Vulnerabilities in code: Check for vulnerability.
+- Functional Errors before deployment: Check for bugs.
+- In summary, Code Analysis tests performed on the CODE.
+- Tools: Checkstyle, Cobertura, mstest, owasp, SonarQube Scanner, etc...
