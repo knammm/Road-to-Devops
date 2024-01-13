@@ -23,7 +23,8 @@ Welcome to my DevOps learning journey! 🚀 In this repository, I've documented 
 6. [Bash Scripting]
 7. [AWS Services for DevOps]
 8. [Git]
-9. [...]
+9. [Jenkins]
+10. [...]
 
 ## Projects
 - [Project 1: Vprofile - Deploy an application manually & automatically using Vagrant provisioning]
