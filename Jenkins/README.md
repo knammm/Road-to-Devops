@@ -83,7 +83,7 @@ For more details on available environment variables, refer to the [Jenkins Pipel
 
 Code Analysis involves detecting functionality and vulnerability errors, following best practices, checking for vulnerabilities, identifying functional errors before deployment, and using tools such as Checkstyle, Cobertura, mstest, OWASP, SonarQube Scanner, etc.
 
-Sonar token: `d7ad3f5ccedea0eaec88fffbe1d208fbc849dd76`. SonarQube sends information to Jenkins via Webhooks.
+SonarQube sends information to Jenkins via Webhooks.
 
 ## Software Repositories
 
@@ -94,9 +94,9 @@ Sonar token: `d7ad3f5ccedea0eaec88fffbe1d208fbc849dd76`. SonarQube sends informa
 - Npm: Package manager for JavaScript
 - Docker: Registry to store Docker Images
 
-## Nexus Software Repository Manager
+# Nexus Software Repository Manager
 
-Key points:
+**Key Points:**
 
 - Runs on Java.
 - Used to store artifacts.
@@ -104,11 +104,41 @@ Key points:
 - Available in Open Source & Enterprise Versions.
 - Supports a variety of repositories like Maven, apt, Docker, Ruby, etc.
 
-Note: Store artifacts => hosted. Download dependencies => proxy. Group is for both.
+**Note:**
+- Store artifacts => hosted. Download dependencies => proxy. Group is for both.
 
-Slack token: `sSYnjpbOuYcGkMiv9NFJTiLz`
+**Slack Token:** `sSYnjpbOuYcGkMiv9NFJTiLz`
 
 To integrate with Slack, the Jenkins workspace URL should follow the format `http://<workspace>.slack.com`. Ensure the full workspace URL is used, as Jenkins expects it in the format `http://<workspace>.slack.com`. For example, if your workspace URL is `cicd-7cz33...com`, use this complete URL for successful testing.
 
 For more information, visit [Slack](https://slack.com/intl/en-in/workspace-signin).
 
+## Container Hosting Platforms
+
+- **Docker Engine:**
+  - For testing and local environments.
+  - Does not provide high availability, self-healing, etc.
+
+- **Kubernetes:**
+  - For production.
+  - Includes standalone, EKS (AWS), AKS (Azure), GKS (Google), Openshift (Redhat), etc.
+  - For now, we can use ECS: We will run our container application here.
+
+## Jenkins Build Trigger
+
+**GitHub Webhook:**
+1. Create a repository with the Jenkinsfile.
+2. Connect Jenkins job (Pipeline) with the repository through SSH.
+3. Add a webhook in the repository (Include the IP with /github-webhook/).
+4. Update the Build Trigger option in the Jenkins job.
+
+**Poll SCM:**
+- Jenkins will regularly check for any GitHub commit (reverse to the above).
+- The format is the same as a Cron job in Linux.
+
+**Scheduled Jobs:**
+- Almost the same as Poll SCM, but it does not check the repository like Poll SCM.
+- Similar to a Cron job in bash scripting.
+
+**Remote Triggers:**
+- You can trigger the job anywhere as long as you have network access to the Jenkins server.
