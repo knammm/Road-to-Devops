@@ -30,8 +30,8 @@ Welcome to my DevOps learning journey! 🚀 In this repository, I've documented 
 - [Project 1: Vprofile - Deploy an application manually & automatically using Vagrant provisioning]
 - [Project 2: Deploy a Microservices application using Docker Containers]
 - [Project 3: Bring the Vprofile application to Cloud Environment with Scalability and High Availability]
-- [Project 4:...]
-
+- [Project 4: CICD Workflow: Leveraging Jenkins, Docker Containers, ECR, and ECS]
+- [Project 5: ...]
 ## Acknowledgments
 I'd like to express my gratitude to [Imran Teli] for delivering a comprehensive DevOps course.
 
