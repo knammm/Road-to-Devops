@@ -142,3 +142,27 @@ For more information, visit [Slack](https://slack.com/intl/en-in/workspace-signi
 
 **Remote Triggers:**
 - You can trigger the job anywhere as long as you have network access to the Jenkins server.
+
+## Jenkins Master-Slave
+### Use cases: Use For Distributed Builds, Cross Platform builds and much more.
+
+- Load Distribution: Jenkins Master executes Build job on the Node it selected.
+- Cross Platform Build: Executing Build of other platforms like .NET (Windows), IOS (MacOS) from Jenkins Master (Linux)
+- Software Testing: Execute Testers Test automation scripts from Node.
+
+### Prerequisites for Node Setup:
+
+- Any OS
+- Network access from Master (make sure to check the firewall rules)
+- Java, JRE, JDK
+- User
+- Directory with User ownership
+- Tools are required by the Jenkins job
+
+## Jenkins Security
+
+1. User login: Jenkins own database, Sign Up, LDAP Integration
+2. Permissions on Jenkins: Admin, Read, Jobs, Credentials, Plugins, etc...
+3. Permissions on Jobs: View, Build, Delete, Configure, etc...
+
+**Note:** A very popular plugin for Adding Roles: `Role-based Authorization Strategy`
