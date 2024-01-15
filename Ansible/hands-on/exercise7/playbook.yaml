@@ -1,0 +1,55 @@
+---
+- name: WebServer setup
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Install HTTPD
+      ansible.builtin.yum:
+        name: httpd
+        state: present
+    
+    - name: Start HTTPD
+      ansible.builtin.service:
+        name: httpd
+        state: started
+        enabled: yes
+
+    - name: Copy and Backup HTML file
+      copy:
+        src: index.html
+        dest: /var/www/html/index.html
+        backup: yes
+
+- name: DBServer setup
+  hosts: dbservers
+  become: yes
+  tasks:
+    - name: Install python3-PyMySQL
+      ansible.builtin.yum:
+        name: python3-PyMySQL
+        state: present
+
+    - name: Install MariaDB
+      ansible.builtin.yum:
+        name: mariadb-server
+        state: present
+    
+    - name: Start MariaDB
+      ansible.builtin.service:
+        name: mariadb
+        state: started
+        enabled: yes
+    
+    - name: Create a new database name `accounts`
+      community.mysql.mysql_db:
+        login_unix_socket: /var/lib/mysql/mysql.sock
+        name: accounts
+        state: present
+
+    - name: Create a database user name `knamm`
+      community.mysql.mysql_user:
+        name: knammm
+        password: 'admin123'
+        priv: '*.*:ALL'
+        state: present
+        login_unix_socket: /var/lib/mysql/mysql.sock
