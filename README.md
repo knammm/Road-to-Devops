@@ -24,7 +24,8 @@ Welcome to my DevOps learning journey! 🚀 In this repository, I've documented 
 7. [AWS Services for DevOps]
 8. [Git]
 9. [Jenkins]
-10. [...]
+10. [Python]
+11. [Ansible]
 
 ## Projects
 - [Project 1: Vprofile - Deploy an application manually & automatically using Vagrant provisioning]
@@ -32,7 +33,8 @@ Welcome to my DevOps learning journey! 🚀 In this repository, I've documented 
 - [Project 3: Bring the Vprofile application to Cloud Environment with Scalability and High Availability]
 - [Project 4: CICD Workflow: Leveraging Jenkins, Docker Containers, ECR, and ECS]
 - [Project 5: ...]
+  
 ## Acknowledgments
 I'd like to express my gratitude to [Imran Teli] for delivering a comprehensive DevOps course.
 
-Update 10/01/2024.
+Update 16/01/2024.
