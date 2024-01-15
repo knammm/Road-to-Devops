@@ -1,0 +1,76 @@
+---
+- name: WebServer setup
+  hosts: webservers
+  become: yes
+  vars:
+    svc: httpd
+    src_file: index.html
+    dest_file: /var/www/html/index.html
+  tasks:
+    - name: Install HTTPD
+      ansible.builtin.yum:
+        name: "{{svc}}"
+        state: present
+    
+    - name: Start HTTPD
+      ansible.builtin.service:
+        name: "{{svc}}"
+        state: started
+        enabled: yes
+
+    - name: Copy and Backup HTML file
+      copy:
+        src: "{{src_file}}"
+        dest: "{{dest_file}}"
+        backup: yes
+      register: webout
+
+    - name: Print output of webservers
+      debug:
+        var: webout
+
+- name: DBServer setup
+  hosts: dbservers
+  become: yes
+  vars:
+    package: python3-PyMySQL
+    svc: mariadb
+    dbname: hcmut
+    dbuser: knammm
+    dbpass: admin123
+    socket_file: /var/lib/mysql/mysql.sock
+  tasks:
+    - name: Install python3-PyMySQL
+      ansible.builtin.yum:
+        name: "{{package}}"
+        state: present
+
+    - name: Install MariaDB
+      ansible.builtin.yum:
+        name: mariadb-server
+        state: present
+    
+    - name: Start MariaDB
+      ansible.builtin.service:
+        name: "{{svc}}"
+        state: started
+        enabled: yes
+    
+    - name: Create a new database name `accounts`
+      community.mysql.mysql_db:
+        login_unix_socket: "{{socket_file}}"
+        name: "{{dbname}}"
+        state: present
+
+    - name: Create a database user name `knamm`
+      community.mysql.mysql_user:
+        name: "{{dbuser}}"
+        password: "{{dbpass}}"
+        priv: '*.*:ALL'
+        state: present
+        login_unix_socket: "{{socket_file}}"
+
+    - debug:
+        msg: "Database name: {{dbname}}"
+    - debug:
+        msg: "Database username: {{dbuser}}"
