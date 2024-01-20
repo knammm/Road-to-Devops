@@ -1,0 +1,12 @@
+---
+services:
+  web:
+    build: .
+    ports:
+      - "7090:5000"
+    volumes:
+      - .:/code
+    environment:
+      FLASK_DEBUG: "true"
+  redis:
+    image: "redis:alpine"
