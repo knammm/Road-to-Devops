@@ -61,3 +61,67 @@ We **Isolated** Services:
 - Docker has two options for containers to store files in the host machine:
 1. **Volume:** It will create a directory. All the container's data will go directly to that folder. Managed by Docker (`/var/lib/docker/volumes/`) on Linux.
 2. **Bind Mounts:** Typically the same with Vagrant sync directory which means that you will bind an outside directory of your host to store the data of the container.
+
+## Dockerfile Instructions
+
+- `FROM`: Specifies the base image.
+- `LABEL`: Adds metadata to an image (similar to adding tags).
+- `RUN`: Executes commands in a new layer and commits the result.
+- `ADD/COPY`: Adds files and folders to the image. `ADD` untars files into the directory, while `COPY` does a simple copy.
+- `CMD`: Sets default commands or parameters that will be executed when the container starts.
+- `ENTRYPOINT`: Configures a container to run as an executable. If a command has any arguments, users must pass them.
+- `VOLUME`: Creates a mount point and marks it for externally mounted volumes.
+- `EXPOSE`: Informs Docker that the container will listen on the specified network ports at runtime.
+- `ENV`: Sets environment variables.
+- `USER`: Sets the username (or UID) for the subsequent instructions.
+- `WORKDIR`: Sets the working directory for the container.
+- `ARG`: Defines a variable that users can pass at build time.
+- `ONBUILD`: Adds a trigger instruction to the image to be executed at a later time.
+
+**Note:** When using both `CMD` and `ENTRYPOINT`, `CMD` provides default arguments that users can override. `ENTRYPOINT` takes higher priority than `CMD`.
+
+## Docker Compose
+
+Docker Compose is a tool used for defining and running multi-container Docker applications. It allows you to manage and run multiple Docker containers together. In Docker Compose, you define your container configurations using a YAML file, and you can start and stop your containers using the `docker-compose up` command.
+
+## Multi Stage Dockerfile
+
+A Multi-Stage Dockerfile is a feature that allows you to create a more efficient and smaller Docker image by using multiple build stages within a single Dockerfile. It helps reduce the final image size by excluding unnecessary dependencies and intermediate build artifacts. Each stage defines a phase in the build process.
+
+### Benefits of Multi-Stage Builds
+
+1. **Smaller Images:** The final production image only includes the necessary components, reducing its size.
+2. **Reduced Attack Surface:** Only the essential components needed for runtime are included in the final image, minimizing potential security risks.
+3. **Simplified Build Process:** The build process is organized into stages, making it easier to manage and understand.
+
+### Syntax of a Multi-Stage Dockerfile
+
+```Dockerfile
+# Stage 1: Build Stage
+FROM base_image as build_stage
+# Copy source code and build
+WORKDIR /app
+COPY . .
+RUN npm install
+RUN npm run build
+
+# Stage 2: Production Stage
+FROM base_image as production_stage
+# Copy only necessary files from the build stage
+WORKDIR /app
+COPY --from=build_stage /app/dist /app/dist
+# Set runtime configurations
+ENV NODE_ENV=production
+# Specify the command to run on container startup
+CMD ["npm", "start"]
+```
+
+In this example, the Dockerfile defines two stages. The first stage (`build_stage`) is responsible for building the application. The second stage (`production_stage`) is responsible for creating the production image.
+
+### Key Instructions in Multi-Stage Dockerfile
+
+- **FROM:** Each stage starts with a `FROM` instruction specifying the base image or a previous stage.
+- **COPY --from:** Allows copying files or directories from a previous stage to the current stage.
+- **WORKDIR:** Sets the working directory for subsequent instructions in the Dockerfile.
+- **RUN:** Executes commands in the current stage.
+- **CMD/ENTRYPOINT:** Specifies the default command or entry point for the final image.
