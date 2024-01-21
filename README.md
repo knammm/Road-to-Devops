@@ -26,8 +26,8 @@ Welcome to my DevOps learning journey! 🚀 In this repository, I've documented 
 9. [Jenkins]
 10. [Python]
 11. [Ansible]
-12. [Docker Container]
-13. [...]
+12. [Docker]
+13. [Kubernetes]
 
 ## Projects
 - [Project 1: Vprofile - Deploy an application manually & automatically using Vagrant provisioning]
@@ -39,4 +39,4 @@ Welcome to my DevOps learning journey! 🚀 In this repository, I've documented 
 ## Acknowledgments
 I'd like to express my gratitude to [Imran Teli] for delivering a comprehensive DevOps course.
 
-Update 19/01/2024.
+Update 21/01/2024.
